@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfiguero < tfiguero@student.42barcelona    +#+  +:+       +#+        */
+/*   By: tfiguero <tfiguero@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 04:30:52 by tfiguero          #+#    #+#             */
-/*   Updated: 2024/09/17 07:06:51 by tfiguero         ###   ########.fr       */
+/*   Updated: 2024/11/11 22:41:03 by tfiguero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,12 @@
 # include <exception>
 
 template <typename T>
-typename T::value_type easyfind(T contain, int look)
-{
-	for (size_t i = 0; i < contain.size(); i++)
-	{
-		if (contain[i] == look)
-		{
-			return(contain[i]);
-		}
-		
-	}
-	throw std::runtime_error("Number wasn't found");
-};
-
-template <typename T>
-void shuffle(std::vector<T>& vec)
-{
-    for (std::size_t i = vec.size() - 1; i > 0; --i)
-	{
-        std::size_t j = rand() % (i + 1);
-        std::swap(vec[i], vec[j]);
+typename T::iterator easyfind(T& container, int value) {
+    typename T::iterator it = std::find(container.begin(), container.end(), value);
+    if (it == container.end()) {
+        throw std::runtime_error("Número no encontrado en el contenedor");
     }
-}
+    return it;
+};
 
 #endif

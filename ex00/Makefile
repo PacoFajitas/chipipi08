@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tfiguero < tfiguero@student.42barcelona    +#+  +:+       +#+         #
+#    By: tfiguero <tfiguero@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 04:29:51 by tfiguero          #+#    #+#              #
-#    Updated: 2024/09/17 04:30:27 by tfiguero         ###   ########.fr        #
+#    Updated: 2024/11/11 22:42:49 by tfiguero         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
