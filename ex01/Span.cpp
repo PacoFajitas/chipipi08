@@ -6,7 +6,7 @@
 /*   By: tfiguero < tfiguero@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 07:03:33 by tfiguero          #+#    #+#             */
-/*   Updated: 2024/09/17 14:12:05 by tfiguero         ###   ########.fr       */
+/*   Updated: 2025/04/15 17:57:19 by tfiguero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,13 @@ Span::Span(Span& old)
 Span& Span::operator=(Span& old)
 {
 	std::cout << "equal operator overload called" << std::endl;
-	this->_limit = old._limit;
-	this->_numbers = old._numbers;
+	if (this != &old)
+	{
+		this->_limit = old._limit;
+		// this->_numbers.clear();
+		this->_numbers = old._numbers;
+		
+	}
 	return *this;
 }
 
@@ -58,9 +63,8 @@ int Span::longestSpan()
 		throw std::runtime_error("Not enough numbers to do this");
 	else
 	{
-		int min = *_numbers.begin();
-		int max = *--_numbers.end();
-		std::cout << min << "    JISJISJISJISJISJISJI    " << max << std::endl;
+		int min = *std::min_element(_numbers.begin(), _numbers.end());
+		int max = *std::max_element(_numbers.begin(), _numbers.end());
 		return (max- min);
 	}
 }
@@ -70,7 +74,7 @@ int Span::shortestSpan()
 	int min;
 	int	temp;
 	
-	if(_numbers.size() == 1 | _numbers.size() == 0)
+	if(_numbers.size() == 1 || _numbers.size() == 0)
 		throw std::runtime_error("Not enough numbers to do this");
 	min = INT_MAX;
 	for (size_t i = 1; i < _numbers.size(); i++)
@@ -85,14 +89,11 @@ int Span::shortestSpan()
 
 void Span::addNumbers(int amount) 
 {
-	std::cout << "HOLIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII" << std::endl;
 	for (int i = 0; i < amount; i++) 
 	{
 		int temp = rand() % 100;
-		std::cout << temp << std::endl;
 		addNumber(temp);
 	}
-	std::cout << "ADEEEEEEEEEEEEEEEEEEEEEEUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU" << std::endl;
 }
 
 void Span::printNumbers()

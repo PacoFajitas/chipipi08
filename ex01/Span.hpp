@@ -6,7 +6,7 @@
 /*   By: tfiguero < tfiguero@student.42barcelona    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 07:03:38 by tfiguero          #+#    #+#             */
-/*   Updated: 2024/09/17 13:54:57 by tfiguero         ###   ########.fr       */
+/*   Updated: 2025/04/15 17:21:11 by tfiguero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Span
 {
 	private:
 		unsigned int _limit;
-		std::set<int> _numbers;
+		std::multiset<int> _numbers;
 	public:
 		Span();
 		Span(unsigned int limit);
